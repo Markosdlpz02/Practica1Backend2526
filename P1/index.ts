@@ -31,7 +31,12 @@ interface Usuario {
  
 function procesarUsuarios(usuarios: Usuario[]): string {
 
+    const menora5 = usuarios.filter((usuario) => usuario.id < 5)
+
+    const strings = menora5.map((usuario) => "Nombre: "+ usuario.name + ", " + "Username: "+usuario.username).join(", ")
+
     
+    return strings 
 }
 
  
