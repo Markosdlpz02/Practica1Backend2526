@@ -1,3 +1,5 @@
+import axios from "axios"
+
 function sumaRecursiva(arr: number[]): number {
   
     let suma:number = 0
@@ -52,10 +54,17 @@ console.log(`Resultado procesado: ${resultadoProcesado}`); // Debería imprimir 
 
 async function obtenerTitulosDePosts(): Promise<string[]> {
   try{
-    await fetch("https://jsonplaceholder.typicode.com/posts").then(data => data)
+    await axios.get("https://jsonplaceholder.typicode.com/posts").then(data => {
+        
+       const titulos = data.data[0].title
+
+       console.log(titulos)
+
+       return titulos
+    })
     
   }catch(error){
-
+    console.log("Error en la API")
   }
 }
  
